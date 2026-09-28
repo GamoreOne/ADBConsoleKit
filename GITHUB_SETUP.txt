@@ -1,0 +1,19 @@
+СБОРКА UNSIGNED IPA С ТЕЛЕФОНА (без Mac)
+
+1. Распакуй ZIP в «Файлах».
+2. github.com → твой репозиторий → Add file → Upload files.
+   Залей ВСЕ файлы из распакованной папки (замени старые). Commit.
+3. Папку .github iPhone часто не видит. Если во вкладке Actions нет
+   «Build unsigned iOS IPA»:
+   - открой файл workflow-build.yml → карандаш;
+   - в начале имени допиши: .github/workflows/
+     должно получиться: .github/workflows/build.yml
+   - Commit.
+4. Actions → «Build unsigned iOS IPA» → Run workflow.
+   Первый раз 25–50 минут (собирается libadb). Потом быстрее за счёт кэша.
+5. Зелёная галочка → Artifacts → ADBConsoleKit-unsigned → внутри .ipa
+6. Красный крест → открой Summary упавшего запуска (хвост лога там)
+   или скачай артефакт build-logs.
+7. Подпиши IPA сам (AltStore / SideStore / Feather / ESign) и поставь.
+
+Не нужен Apple-сертификат в GitHub: IPA выходит unsigned.

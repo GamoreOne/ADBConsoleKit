@@ -1,0 +1,51 @@
+name: ADBConsoleKit
+
+options:
+  bundleIdPrefix: com.gamoreone
+  deploymentTarget:
+    iOS: "16.0"
+
+targets:
+  ADBConsoleKit:
+    type: application
+    platform: iOS
+    sources:
+      - ADBConsoleKitApp.swift
+      - ContentView.swift
+      - GoogleServicesView.swift
+      - Watch4OptimizerView.swift
+      - BatteryDiagnosticsView.swift
+      - ADBBridge.swift
+      - ADBBridge.m
+      - ADBBridge.h
+    settings:
+      base:
+        PRODUCT_NAME: ADBConsoleKit
+        PRODUCT_BUNDLE_IDENTIFIER: com.gamoreone.adbconsole
+        SWIFT_VERSION: "5.0"
+        MARKETING_VERSION: "5.7"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MACCATALYST: NO
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "ADB Console"
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_NSLocalNetworkUsageDescription: "ADB Console uses the local network to talk to an Android device over ADB."
+        INFOPLIST_KEY_NSBonjourServices: "_adb-tls-connect._tcp,_adb-tls-pairing._tcp"
+        SWIFT_OBJC_BRIDGING_HEADER: "$(PROJECT_DIR)/ADBConsoleKit-Bridging-Header.h"
+        HEADER_SEARCH_PATHS: "$(PROJECT_DIR)/Dependencies/adb-mobile/output/include"
+        LIBRARY_SEARCH_PATHS: "$(PROJECT_DIR)/Dependencies/adb-mobile/output"
+        OTHER_LDFLAGS: "-ladb -lc++ -lz"
+        CLANG_CXX_LANGUAGE_STANDARD: "c++17"
+        CLANG_CXX_LIBRARY: "libc++"
+        ENABLE_BITCODE: NO
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        CODE_SIGNING_ALLOWED: NO
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGN_IDENTITY: ""
+        DEVELOPMENT_TEAM: ""
+    scheme:
+      testTargets: []
